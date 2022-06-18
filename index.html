@@ -17,45 +17,47 @@
     <h1 class="title">SPLI<br />TTER</h1>
     <div class="calculator-container">
       <div class="caculator-content">
-        <!-- Bill Input -->
-        <div class="bill">
-          <h2 class="bill-title">Bill</h2>
-          <div class="bill-input-container">
-            <input type="text" placeholder="0" class="bill-input" />
-            <img
-              src="images/icon-dollar.svg"
-              alt="US dollar sign"
-              class="dollar-icon"
-            />
+        <div class="user-options">
+          <!-- Bill Input -->
+          <div class="bill">
+            <h2 class="bill-title">Bill</h2>
+            <div class="bill-input-container">
+              <input type="text" placeholder="0" class="bill-input" />
+              <img
+                src="images/icon-dollar.svg"
+                alt="US dollar sign"
+                class="dollar-icon"
+              />
+            </div>
           </div>
-        </div>
-        <!-- Select Tip -->
-        <div class="select-tip">
-          <h2 class="select-tip-title">Select Tip %</h2>
-          <div class="selected-tips">
-            <div class="tip" id="0">5%</div>
-            <div class="tip" id="1">10%</div>
-            <div class="tip" id="2">15%</div>
-            <div class="tip" id="3">25%</div>
-            <div class="tip" id="4">50%</div>
-            <input
-              type="text"
-              placeholder="Custom"
-              class="tip custom-tip"
-              id="5"
-            />
+          <!-- Select Tip -->
+          <div class="select-tip">
+            <h2 class="select-tip-title">Select Tip %</h2>
+            <div class="selected-tips">
+              <div class="tip" id="0">5%</div>
+              <div class="tip" id="1">10%</div>
+              <div class="tip" id="2">15%</div>
+              <div class="tip" id="3">25%</div>
+              <div class="tip" id="4">50%</div>
+              <input
+                type="text"
+                placeholder="Custom"
+                class="tip custom-tip"
+                id="5"
+              />
+            </div>
           </div>
-        </div>
-        <!-- Number of People Input -->
-        <div class="num-of-people">
-          <h2 class="num-of-people-title">Number of people</h2>
-          <div class="num-of-people-input-container">
-            <input type="text" placeholder="0" class="people-input" />
-            <img
-              src="images/icon-person.svg"
-              alt="US dollar sign"
-              class="dollar-icon"
-            />
+          <!-- Number of People Input -->
+          <div class="num-of-people">
+            <h2 class="num-of-people-title">Number of people</h2>
+            <div class="num-of-people-input-container">
+              <input type="text" placeholder="0" class="people-input" />
+              <img
+                src="images/icon-person.svg"
+                alt="US dollar sign"
+                class="dollar-icon"
+              />
+            </div>
           </div>
         </div>
         <!-- Tip Calculations -->
@@ -66,7 +68,7 @@
               Tip Amount
               <span>/ person</span>
             </div>
-            <div class="tip-amount">$4.27</div>
+            <div class="tip-amount tip-amount-person">$4.27</div>
           </div>
           <!-- Total amount per person -->
           <div class="tip-calculations-container">
@@ -74,7 +76,7 @@
               Total
               <span>/ person</span>
             </div>
-            <div class="tip-amount">$32.79</div>
+            <div class="tip-amount total-amount-person">$32.79</div>
           </div>
           <!-- Reset Btn -->
           <button class="reset-btn">RESET</button>
