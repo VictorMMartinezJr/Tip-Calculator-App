@@ -7,8 +7,12 @@ const numOfPeopleInput = document.querySelector(".people-input");
 const emptyPeople = document.querySelector(".empty-people");
 const tipPerPerson = document.querySelector(".tip-amount-person");
 const totalPerPerson = document.querySelector(".total-amount-person");
+const customTipInput = document.querySelector(".custom-tip");
+const emptyCustomTip = document.querySelector(".empty-custom-tip");
+const resetBtn = document.querySelector(".reset-btn");
 
 let tipAmount;
+let customTipAmount;
 let billAmount;
 let numOfPeople;
 let tipPerPersonNumber;
@@ -23,6 +27,18 @@ billInput.addEventListener("input", () => {
   } else {
     billAmount = billInput.value;
     emptyBill.textContent = "";
+  }
+});
+
+// Update value of customTipAmount when billInput changes
+customTipInput.addEventListener("input", () => {
+  // Only update value if customTipInput value is a number
+  if (isNaN(customTipInput.value) || customTipInput.value === "0") {
+    emptyCustomTip.textContent = "Enter an amount";
+    return;
+  } else {
+    customTipAmount = "." + customTipInput.value;
+    emptyCustomTip.textContent = "";
   }
 });
 
@@ -55,10 +71,21 @@ tipAmounts.forEach((tip) => {
     } else {
       emptyBill.textContent = "";
       emptyPeople.textContent = "";
-      // Remove active class from every tip and add it to clicked tip
-      tipAmounts.forEach((tip) => tip.classList.remove("active"));
-      tip.classList.add("active");
-      tipAmount = "00." + tip.textContent.slice(0, 2);
+
+      // If custom input selected START
+      if (tip.id === "5") {
+        if (!customTipAmount) {
+          emptyCustomTip.textContent = "Enter an amount";
+          return;
+        }
+        tipAmount = customTipAmount;
+        // If custom input selected END
+      } else {
+        // Remove active class from every tip and add it to clicked tip
+        tipAmounts.forEach((tip) => tip.classList.remove("active"));
+        tip.classList.add("active");
+        tipAmount = "." + tip.textContent.slice(0, -1);
+      }
 
       tipPerPersonNumber = ((billAmount * tipAmount) / numOfPeople).toFixed(2);
 
@@ -72,4 +99,23 @@ tipAmounts.forEach((tip) => {
       totalPerPerson.textContent = "$" + totalPerPersonNumber;
     }
   });
+});
+
+// Clear all values
+resetBtn.addEventListener("click", () => {
+  tipAmount = "";
+  customTipAmount = "";
+  billAmount = "";
+  numOfPeople = "";
+  tipPerPersonNumber = "";
+  totalPerPersonNumber = "";
+  totalPerPerson.textContent = "$00.00";
+  tipPerPerson.textContent = "$00.00";
+  billInput.value = "";
+  numOfPeopleInput.value = "";
+  customTipInput.value = "";
+  emptyBill.textContent - "";
+  emptyPeople.textContent - "";
+  emptyCustomTip.textContent - "";
+  tipAmounts.forEach((tip) => tip.classList.remove("active"));
 });
