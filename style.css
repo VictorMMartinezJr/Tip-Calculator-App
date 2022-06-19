@@ -79,7 +79,13 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
+.empty-bill {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
 /* Select Tip */
 .select-tip {
   margin-top: 1rem;
@@ -99,6 +105,10 @@ body {
   padding: 0.3rem 0;
   border-radius: 5px;
 }
+.tip.active {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
 .custom-tip {
   padding-right: 1rem;
   height: 100%;
@@ -116,6 +126,13 @@ body {
 }
 .people-input {
   padding: 0.5rem 1rem;
+}
+.empty-people {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
 /* Tip Calculations */
 .tip-caculations {
