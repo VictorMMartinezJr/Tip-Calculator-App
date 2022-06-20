@@ -11,9 +11,9 @@ const customTipInput = document.querySelector(".custom-tip");
 const emptyCustomTip = document.querySelector(".empty-custom-tip");
 const resetBtn = document.querySelector(".reset-btn");
 
+let billAmount;
 let tipAmount;
 let customTipAmount;
-let billAmount;
 let numOfPeople;
 let tipPerPersonNumber;
 let totalPerPersonNumber;
@@ -39,6 +39,18 @@ customTipInput.addEventListener("input", () => {
   } else {
     customTipAmount = "." + customTipInput.value;
     emptyCustomTip.textContent = "";
+    tipPerPersonNumber = ((billAmount * customTipAmount) / numOfPeople).toFixed(
+      2
+    );
+
+    tipPerPerson.textContent = "$" + tipPerPersonNumber;
+
+    totalPerPersonNumber = (
+      (tipPerPersonNumber * numOfPeople + +billAmount) /
+      numOfPeople
+    ).toFixed(2);
+
+    totalPerPerson.textContent = "$" + totalPerPersonNumber;
   }
 });
 
@@ -74,13 +86,19 @@ tipAmounts.forEach((tip) => {
 
       // If custom input selected START
       if (tip.id === "5") {
+        tipAmounts.forEach((tip) => tip.classList.remove("active"));
         if (!customTipAmount) {
           emptyCustomTip.textContent = "Enter an amount";
           return;
         }
         tipAmount = customTipAmount;
+
         // If custom input selected END
       } else {
+        emptyCustomTip.textContent = "";
+        customTipInput.value = "";
+        customTipAmount = "";
+
         // Remove active class from every tip and add it to clicked tip
         tipAmounts.forEach((tip) => tip.classList.remove("active"));
         tip.classList.add("active");
@@ -101,7 +119,7 @@ tipAmounts.forEach((tip) => {
   });
 });
 
-// Clear all values
+// Clear ALL values
 resetBtn.addEventListener("click", () => {
   tipAmount = "";
   customTipAmount = "";
